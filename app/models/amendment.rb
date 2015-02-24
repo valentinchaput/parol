@@ -4,6 +4,6 @@ class Amendment < ActiveRecord::Base
   has_many :articles, through: :instructions
 
   validates :title, presence: true, uniqueness: true
-  validates :description, presence: true
   validates :content, presence: true
+  validates :description, presence: true
 end
