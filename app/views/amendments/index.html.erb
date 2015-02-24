@@ -1,9 +1,11 @@
-<h1><%= law.title %></h1>
-<p><%= law.description %></p>
+<!-- Cette page sera remplacée par law#show -->
 
-<% amendments.each do |amendment| %>
-  <h4><%= amendment.title %></h4>
-  <p><%= amendment.description %></p>
+<h1><%= @law.title %></h1>
+<p><%= @law.description %></p>
+
+<% @amendments.each do |amendment| %>
+  <h4><%= @amendment.title %></h4>
+  <p><%= @amendment.description %></p>
   <p>
     <%= link_to 'show', amendment_path(amendment), class: 'btn btn-primary' %>
   </p>
