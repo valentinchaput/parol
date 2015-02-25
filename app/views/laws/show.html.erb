@@ -1,9 +1,23 @@
-<h1><%= @law.title %></h1>
+<div class="container">
 
-<p><%= @law.description %></p>
-<% @law.amendments.each do |amendment| %>
-  <!-- A REVOIR POUR LES ROUTES NESTEES -->
-  <p>
-    <%= link_to 'show', law_amendment_path(amendment), class: 'btn btn-primary' %>
-  </p>
-<% end %>
+  <div class="row">
+    <div class="col-xs-7">
+
+
+      <h1><%= @law.title %></h1>
+      <h2><%= @law.description %></h2>
+
+      <!-- on a besoin de la liste des articles concernés par la loi  -->
+      <!-- leur titre + leur url (qui redirige vers l'amendment/show -->
+
+      <% @law.amendments.each do |amendment| %>
+        <%= link_to amendment.title, law_amendment_path(@law, amendment) %>
+        <%#= link_to amendment.title, law_amendment_path%>
+
+<p>
+          <%#= link_to 'show', law_amendment_path(amendment), class: 'btn btn-primary' %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
