@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224112600) do
+ActiveRecord::Schema.define(version: 20150225134942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "amendments", force: :cascade do |t|
+    t.integer  "law_id"
     t.string   "title"
     t.text     "content"
     t.text     "description"
-    t.integer  "law_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -28,11 +28,20 @@ ActiveRecord::Schema.define(version: 20150224112600) do
   add_index "amendments", ["law_id"], name: "index_amendments_on_law_id", using: :btree
 
   create_table "articles", force: :cascade do |t|
-    t.string   "title"
+    t.string   "code" #nom du code (parsed)
+    t.string   "part"
+    t.string   "sub_part"
+    t.string   "book"
+    t.string   "title" #titre dans l'arborescence du code
+    t.string   "chapter"
+    t.string   "section"
+    t.string   "sub_section"
+    t.string   "paragraph"
+    t.string   "article" #numero de l'article
     t.text     "content"
     t.integer  "code_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "articles", ["code_id"], name: "index_articles_on_code_id", using: :btree
