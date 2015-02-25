@@ -1,6 +1,6 @@
-require_relative 'article'
 require 'open-uri'
 require 'nokogiri'
+require_relative '../controllers/articles_controller'
 
 class Parser
   attr_accessor :html_doc
@@ -17,14 +17,13 @@ class Parser
     article.code = @html_doc.xpath('//*[@class="data"]/div/div/a/strong').text
     article.part = @html_doc.xpath('//*[@class="data"]/div/ul/li/a').text
     article.sub_part = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/a').text
-    # binding.pry
     article.book = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/ul/li/a').text
     article.title = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/ul/li/ul/li/a').text
     article.chapter = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/ul/li/ul/li/ul/li/a').text
-    article.section = "" # pas de section
+    article.section = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/ul/li/ul/li/ul/li/ul/li/a').text
     article.article = @html_doc.search('.titreArt').text
     article.content = @html_doc.search('.corpsArt').text
-    return article
+    article.save
   end
 
 end
@@ -32,7 +31,7 @@ end
 #parses an article page
 
 #TEST
-# url_article = "http://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=2D20E582ECA85F72A840C5C638A7B98F.tpdila13v_3?idArticle=LEGIARTI000023985192&cidTexte=LEGITEXT000023983208&dateTexte=20110816"
+# url_article = "http://www.legifrance.gouv.fr/affichCodeArticle.do;jsessionid=90FC28081E4A0791C848921D31417751.tpdila13v_3?idArticle=LEGIARTI000027682584&cidTexte=LEGITEXT000006071191&dateTexte=20150225"
 # parser = Parser.new(url_article)
 # article_path = parser.run!
 # p article_path
