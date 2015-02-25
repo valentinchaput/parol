@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 20150224112600) do
   enable_extension "plpgsql"
 
   create_table "amendments", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-    t.text     "description"
     t.integer  "law_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "title"
+    t.text     "content"
+    t.text     "description"
   end
 
   add_index "amendments", ["law_id"], name: "index_amendments_on_law_id", using: :btree
