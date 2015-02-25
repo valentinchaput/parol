@@ -1,14 +1,4 @@
-<%@articles.each |article| do%>
+<% @articles.each do |article| %>
   <h1><%= article.article %></h1>
-  <li>
-    <ul><%=article.code%></ul>
-    <ul><%=article.part%></ul>
-    <ul><%=article.sub_part%></ul>
-    <ul><%=article.book%></ul>
-    <ul><%=article.title%></ul>
-    <ul><%=article.chapter%></ul>
-    <ul><%=article.section%></ul>
-  </li>
-
-  <p><%=article.content%></p>
+  <%= link_to "Details", article_path(article), class: "btn btn-primary" %>
 <%end%>
