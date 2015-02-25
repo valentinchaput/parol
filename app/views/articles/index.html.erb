@@ -1,0 +1,14 @@
+<%@articles.each |article| do%>
+  <h1><%= article.article %></h1>
+  <li>
+    <ul><%=article.code%></ul>
+    <ul><%=article.part%></ul>
+    <ul><%=article.sub_part%></ul>
+    <ul><%=article.book%></ul>
+    <ul><%=article.title%></ul>
+    <ul><%=article.chapter%></ul>
+    <ul><%=article.section%></ul>
+  </li>
+
+  <p><%=article.content%></p>
+<%end%>

@@ -15,7 +15,7 @@ class Crawler
   def crawl_code
     # FROM INDEX (code) TO SUMMARY
     starting_page = @mechanize.get(@base_url)
-    starting_page.search(".codeLienArt a").first(2).each do |node|
+    starting_page.search(".codeLienArt a").first(4).each do |node|
       url = "http://www.legifrance.gouv.fr/#{node[:href]}"
       @summary_urls << url
     end
