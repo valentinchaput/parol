@@ -14,7 +14,7 @@ class Parser
   def run!
   #retourne un array [code, partie, sous_partie, livre, titre, chapitre, section, article, content]
     article = Article.new
-    article.code = @html_doc.xpath('//*[@class="data"]/div/div/a/strong').text
+    # article.code = @html_doc.xpath('//*[@class="data"]/div/div/a/strong').text
     article.part = @html_doc.xpath('//*[@class="data"]/div/ul/li/a').text
     article.sub_part = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/a').text
     article.book = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/ul/li/a').text
