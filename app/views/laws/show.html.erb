@@ -1,0 +1,9 @@
+<h1><%= @law.title %></h1>
+
+<p><%= @law.description %></p>
+<% @law.amendments.each do |amendment| %>
+  <!-- A REVOIR POUR LES ROUTES NESTEES -->
+  <p>
+    <%= link_to 'show', law_amendment_path(amendment), class: 'btn btn-primary' %>
+  </p>
+<% end %>
