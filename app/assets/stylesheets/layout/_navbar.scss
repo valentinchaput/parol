@@ -50,7 +50,7 @@ $navbar-profile-border-width: 2px;
   padding-left: $navbar-horizontal-padding;
   padding-right: $navbar-horizontal-padding;
   border-bottom: $navbar-border-bottom-width solid $navbar-border-bottom-color;
-  min-height: 0;
+  min-height: 70px;
   transition: background 0.4s ease;
 
   .navbar-nav > li > a,
