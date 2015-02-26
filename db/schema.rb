@@ -18,30 +18,30 @@ ActiveRecord::Schema.define(version: 20150225134942) do
 
   create_table "amendments", force: :cascade do |t|
     t.integer  "law_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "title"
     t.text     "content"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   add_index "amendments", ["law_id"], name: "index_amendments_on_law_id", using: :btree
 
   create_table "articles", force: :cascade do |t|
-    t.string   "code" #nom du code (parsed)
-    t.string   "part"
-    t.string   "sub_part"
-    t.string   "book"
-    t.string   "title" #titre dans l'arborescence du code
-    t.string   "chapter"
-    t.string   "section"
-    t.string   "sub_section"
-    t.string   "paragraph"
-    t.string   "article" #numero de l'article
+    t.string   "title"
     t.text     "content"
     t.integer  "code_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "code"
+    t.string   "part"
+    t.string   "sub_part"
+    t.string   "book"
+    t.string   "chapter"
+    t.string   "section"
+    t.string   "sub_section"
+    t.string   "paragraph"
+    t.string   "article"
   end
 
   add_index "articles", ["code_id"], name: "index_articles_on_code_id", using: :btree
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20150225134942) do
   create_table "codes", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "instructions", force: :cascade do |t|
