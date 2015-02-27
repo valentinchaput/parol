@@ -1,11 +1,15 @@
 #dropdownMenu {
   min-width: auto;
-  width: 100% !important;
+  width: 90%;
 }
 
 #body-home {
-  background-image: asset-url('parlement.png');
+  background-image: asset-url('parlement-2.png');
   opacity: 1;
   background-size: cover;
   height: 670px;
+}
+
+.home-block {
+  padding-top: 200px;
 }

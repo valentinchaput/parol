@@ -49,6 +49,11 @@
           </li>
         <% else %>
           <li>
+            <%= link_to codes_path do %>
+              <i class="fa fa-legal"></i> <%= t(".messages", default: "Codes de loi") %>
+            <% end %>
+          </li>
+          <li>
             <%#= link_to t(".sign_up", default: "Sign up"), new_user_registration_path %>
           </li>
           <li>

@@ -8,39 +8,29 @@ Home
 <% end %>
 
 <body id="body-home">
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-      <br>
-      <br>
-      <br>
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-expanded="true">
-          Pick a law
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" id="dropdownMenu">
-          <% Law.all.each do |law| %>
-          <li role="presentation">
-            <!-- <a role="menuitem" tabindex="-1" href="/laws/:id">Loi éducation 2013</a> -->
-            <%= link_to law.title, law_path(law), role: "menuitem" %>
-          </li>
-          <!-- <li role="presentation" class="disabled">
-            <a role="menuitem" tabindex="-1" href="#">Loi santé</a>
-          </li>
-          <li role="presentation" class="disabled">
-            <a role="menuitem" tabindex="-1" href="#">Loi tran  tion énergétique</a>
-          </li> -->
-          <% end %>
-        </ul>
+  <div class="home-block">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">
+
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-expanded="true">
+              Pick a law
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" id="dropdownMenu">
+              <% Law.all.each do |law| %>
+              <li role="presentation">
+                <%= link_to law.title, law_path(law), role: "menuitem" %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+
+        </div>
       </div>
+
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <%= link_to 'Index des codes de lois', codes_path, class:"btn btn-primary center-block" %>
-    </div>
-  </div>
-
-</div>
+</body>

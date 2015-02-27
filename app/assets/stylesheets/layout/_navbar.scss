@@ -1,8 +1,8 @@
 /* -------------------------------------
  * Colors & Fonts
  * ------------------------------------- */
-$navbar-color: $gray-light;
-$navbar-hover-color: $yellow;
+$navbar-color: $gray-darker;
+$navbar-hover-color: $red-parol;
 $navbar-font-family: $navbar-font;
 $navbar-font-size: 14px;
 $navbar-text-transform: capitalize;
@@ -18,7 +18,7 @@ $navbar-height: 50px;
 $navbar-vertical-padding: 10px;
 $navbar-horizontal-padding: 20px;
 $navbar-border-bottom-width: 1px;
-$navbar-border-bottom-color: #787878;
+$navbar-border-bottom-color: $gray-lighter;
 
 /* -------------------------------------
  * Navbar button
