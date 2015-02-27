@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-laws = Law.create [
+laws = Law.create! [
     {
   id:           1,
   title:        "Loi éducation 2013",
