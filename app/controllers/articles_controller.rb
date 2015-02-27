@@ -1,6 +1,6 @@
-require_relative "../legifranceparser/summary"
-require_relative "../legifranceparser/parser"
-require_relative "../legifranceparser/crawler"
+require "legifranceparser/summary"
+require "legifranceparser/parser"
+require "legifranceparser/crawler"
 
 
 class ArticlesController < ApplicationController

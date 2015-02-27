@@ -1,7 +1,9 @@
 <h1>Laws#index</h1>
 
-<% @laws.each do |law| %>
+<div>
+  <% @laws.each do |law| %>
   <h4><%= law.title %></h4>
   <p><%= law.description %></p>
   <p><%= link_to 'show', law_path(law), class: 'btn btn-primary' %></p>
-<% end %>
+  <% end %>
+</div>

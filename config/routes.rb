@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'home/index'
 
+  resources :codes, only: [:index, :show]
   resources :articles, only: [:index, :show]
 
   resources :laws, only: [:index, :show] do

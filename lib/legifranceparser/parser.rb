@@ -1,6 +1,5 @@
 require 'open-uri'
 require 'nokogiri'
-require_relative '../controllers/articles_controller'
 
 class Parser
   attr_accessor :html_doc
@@ -23,6 +22,7 @@ class Parser
     article.section = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/ul/li/ul/li/ul/li/ul/li/a').text
     article.article = @html_doc.search('.titreArt').text
     article.content = @html_doc.search('.corpsArt').text
+    article.code_id = "1" #code education!!!
     article.save
   end
 

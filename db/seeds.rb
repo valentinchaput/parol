@@ -6,12 +6,30 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+codes = Code.create! [
+    {
+  id:           1,
+  title:        "Code de l'éducation",
+  description:  "Ensemble des lois portant sur l'éducation, de l'école et de la formation.",
+  },
+    {
+  id:           2,
+  title:        "Code des transports",
+  description:  "Régulations des transports civils, commerciaux et publics",
+  },
+    {
+  id:           3,
+  title:        "Code de l'environnement",
+  description:  "Code des plantes et des fleurs",
+  }]
 
-laws = Law.create [
+
+laws = Law.create! [
     {
   id:           1,
   title:        "Loi éducation 2013",
-  description:  "Blablablabla",
+  description:  "L’avenir de la jeunesse, le redressement de notre pays, son développement culturel, social et économique dépendent largement de notre capacité collective à refonder l’école de la République.
+Cette refondation porte non seulement un projet éducatif, mais également un projet de société. La France, avec la refondation de son école, se donne les moyens de répondre aux grands défis auxquels elle est confrontée : élever le niveau de connaissances, de compétence et de culture de tous les enfants, accroître son niveau de croissance avec des jeunes mieux formés et dotés de hautes compétences, lutter contre le chômage des jeunes, réduire les inégalités sociales et territoriales, promouvoir l’égalité entre les femmes et les hommes, recréer une cohésion nationale et un lien civique autour de la promesse républicaine de la réussite éducative pour tous.",
   },
     {
   id:           2,
