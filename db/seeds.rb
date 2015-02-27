@@ -6,6 +6,23 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+codes = Code.create! [
+    {
+  id:           1,
+  title:        "Code de l'éducation",
+  description:  "Ensemble des lois portant sur l'éducation, de l'école et de la formation.",
+  },
+    {
+  id:           2,
+  title:        "Code des transports",
+  description:  "Régulations des transports civils, commerciaux et publics",
+  },
+    {
+  id:           3,
+  title:        "Code de l'environnement",
+  description:  "Code des plantes et des fleurs",
+  }]
+
 
 laws = Law.create! [
     {
