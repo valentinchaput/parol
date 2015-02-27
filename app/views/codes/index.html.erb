@@ -1,0 +1,8 @@
+<h1>Codes#index</h1>
+
+<% @codes.each do |code| %>
+  <h4><%= code.title %></h4>
+  <p><%= code.description %></p>
+  <p><%= link_to 'Details', code_path(code), class: 'btn btn-primary' %></p>
+<% end %>
+
