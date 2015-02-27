@@ -1,6 +1,5 @@
 require 'open-uri'
 require 'nokogiri'
-require_relative '../controllers/articles_controller'
 
 class Parser
   attr_accessor :html_doc
