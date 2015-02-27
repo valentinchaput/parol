@@ -1,27 +1,32 @@
-<div class="container">
+<body>
 
-  <div class="row">
-    <div class="col-xs-7">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-xs-10 col-xs-offset-2">
 
 
-      <h1><%= @code.title %></h1>
-      <h2><%= @code.description %></h2>
+        <h1><%= @code.title %></h1>
+        <h4><%= @code.description %></h4>
+        <br>
 
-      <!-- on a besoin de la liste des articles concernés par la loi  -->
-      <!-- leur titre + leur url (qui redirige vers l'amendment/show -->
+        <!-- on a besoin de la liste des articles concernés par la loi  -->
+        <!-- leur titre + leur url (qui redirige vers l'amendment/show -->
 
-      <% @code.articles.each do |article| %>
-        <ul>
-          <li><%= link_to article.article, article_path(article) %></li>
-        </ul>
-      <% end %>
+        <% @code.articles.each do |article| %>
+          <ul>
+            <li><%= link_to article.article, article_path(article) %></li>
+          </ul>
+        <% end %>
 
-        <%#= link_to amendment.title, law_amendment_path%>
-
+          <%#= link_to amendment.title, law_amendment_path%>
+        <br>
         <p>
           <%= link_to 'back to la Loi', codes_path, class: 'btn btn-primary' %>
         </p>
-
+      </div>
     </div>
   </div>
-</div>
+
+</body>
+
