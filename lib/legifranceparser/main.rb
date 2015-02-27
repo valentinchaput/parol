@@ -1,6 +1,5 @@
 require_relative "crawler"
 require_relative "parser"
-require_relative "article"
 require_relative "summary"
 
 articles = []  # Array of `Article`
