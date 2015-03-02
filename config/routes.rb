@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   get 'home/index'
 
   resources :codes, only: [:index, :show]
