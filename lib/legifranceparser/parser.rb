@@ -12,18 +12,18 @@ class Parser
 
   def run!
   #retourne un array [code, partie, sous_partie, livre, titre, chapitre, section, article, content]
-    article = Article.new
+    code_article = CodeArticle.new
     # article.code = @html_doc.xpath('//*[@class="data"]/div/div/a/strong').text
-    article.part = @html_doc.xpath('//*[@class="data"]/div/ul/li/a').text
-    article.sub_part = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/a').text
-    article.book = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/ul/li/a').text
-    article.title = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/ul/li/ul/li/a').text
-    article.chapter = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/ul/li/ul/li/ul/li/a').text
-    article.section = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/ul/li/ul/li/ul/li/ul/li/a').text
-    article.article = @html_doc.search('.titreArt').text
-    article.content = @html_doc.search('.corpsArt').text
-    article.code_id = "1" #code education!!!
-    article.save
+    code_article.part = @html_doc.xpath('//*[@class="data"]/div/ul/li/a').text
+    code_article.sub_part = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/a').text
+    code_article.book = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/ul/li/a').text
+    code_article.title = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/ul/li/ul/li/a').text
+    code_article.chapter = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/ul/li/ul/li/ul/li/a').text
+    code_article.section = @html_doc.xpath('//*[@class="data"]/div/ul/li/ul/li/ul/li/ul/li/ul/li/ul/li/a').text
+    code_article.article_number = @html_doc.search('.titreArt').text
+    code_article.content = @html_doc.search('.corpsArt').text
+    code_article.code_id = "1" #code education!!!
+    code_article.save
   end
 
 end
