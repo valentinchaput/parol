@@ -1,7 +1,5 @@
 class Amendment < ActiveRecord::Base
   belongs_to :law_article
-  has_many :instructions
-  has_many :articles, through: :instructions
 
   validates :chamber, presence: true
   validates :author, presence: true
