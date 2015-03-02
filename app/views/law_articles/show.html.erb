@@ -5,7 +5,7 @@
       <h2>Code de l'éducation - Article L111-1</h2>
       <!-- <div class="text-justify"> -->
       <p>
-        L'éducation est la première priorité nationale. Le service public de l'éducation est conçu et organisé en fonction des élèves et des étudiants. Il contribue à l'égalité des chances et à lutter contre les inégalités sociales et territoriales en matière de réussite scolaire et éducative. Il reconnaît que tous les enfants partagent la capacité d'apprendre et de progresser. <a href="#" class="amendment">Il veille à l'inclusion scolaire de tous les enfants, sans aucune distinction.</a> Il veille également à la mixité sociale des publics scolarisés au sein des établissements d'enseignement. Pour garantir la réussite de tous, l'école se construit avec la participation des parents, quelle que soit leur origine sociale. Elle s'enrichit et se conforte par le dialogue et la coopération entre tous les acteurs de la communauté éducative.
+        L'éducation est la première priorité nationale. Le service public de l'éducation est conçu et organisé en fonction des élèves et des étudiants. Il contribue à l'égalité des chances et à lutter contre les inégalités sociales et territoriales en matière de réussite scolaire et éducative. Il reconnaît que tous les enfants partagent la capacité d'apprendre et de progresser. <a href="#" class="amendment" data-amendmentId="1">Il veille à l'inclusion scolaire de tous les enfants, sans aucune distinction.</a> Il veille également à la mixité sociale des publics scolarisés au sein des établissements d'enseignement. Pour garantir la réussite de tous, l'école se construit avec la participation des parents, quelle que soit leur origine sociale. <a href="#" class="amendment" data-amendmentId="2">Elle s'enrichit et se conforte par le dialogue et la coopération entre tous les acteurs de la communauté éducative.</a>
       </p>
       <p>
         Outre la transmission des connaissances, la Nation fixe comme mission première à l'école de faire partager aux élèves les valeurs de la République. Le service public de l'éducation fait acquérir à tous les élèves le respect de l'égale dignité des êtres humains, de la liberté de conscience et de la laïcité. Par son organisation et ses méthodes, comme par la formation des maîtres qui y enseignent, il favorise la coopération entre les élèves.
@@ -32,13 +32,23 @@
 
     </div>
 
-    <div class="col-xs-5 hidden" id="amendment_details">
+    <div class="col-xs-5 hidden" id="amendment_details_1">
       <div class="side-border padded"><!-- insérer l'instruction d'amendement (n°, statut, auteur, objet...) -->
         <h3>Amendement n°57</h3>
         <p>Auteur: Jules Ferry Jr.</p>
         <p>Statut: En discussion (Assemblée)</p>
-        <p>Objet: Mettre en avant l'égalité de tous les enfants face à l'Ecole.</p>
+        <p>Objet: Mettre en avant l'égalité de tous les enfants face à l'école.</p>
         <p>Date: 12/01/2015</p>
+      </div>
+    </div>
+
+    <div class="col-xs-5 hidden" id="amendment_details_2">
+      <div class="side-border padded"><!-- insérer l'instruction d'amendement (n°, statut, auteur, objet...) -->
+        <h3>Amendement n°42</h3>
+        <p>Auteur: Jean-Michel Debré</p>
+        <p>Statut: Adopté (Assemblée)</p>
+        <p>Objet: Rajouté dialogue.</p>
+        <p>Date: 15/03/2014</p>
       </div>
     </div>
   </div>
@@ -54,3 +64,18 @@
     })
   <% end %>
 <% end %>
+
+
+
+<!-- à insérer ds les div -->
+        <!-- <h1><%= @amendment.title %></h1>
+
+        <p><%= @amendment.description %></p> -->
+
+        <!-- afficher les articles du code qui sont modifiés par l'amendement -->
+        <%# @amendments.each do |amendment| %>
+        <!-- comme sur genius.com : chaque paragraphe est un a (construit avec des <br>)
+        qui ouvre un href qui est une sidebar amendmentContainer -->
+        <%# end %>
+
+<!-- amendmentContainer avec amendment.content -->
