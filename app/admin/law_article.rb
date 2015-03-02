@@ -1,4 +1,4 @@
-ActiveAdmin.register Article do
+ActiveAdmin.register LawArticle do
   permit_params :title, :content
 
   # See permitted parameters documentation:
