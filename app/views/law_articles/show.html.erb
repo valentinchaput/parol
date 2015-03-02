@@ -54,6 +54,16 @@
   </div>
 </div>
 
+<%= content_for :after_js do %>
+  <% javascript_tag do %>
+    $(document).ready(function() {
+      $('.amendment').on('click', function() {
+        $('#amendment_details').toggleClass('hidden');
+        $('.amendment').toggleClass('bg-active');
+      })
+    })
+  <% end %>
+<% end %>
 
 
 
@@ -69,5 +79,3 @@
         <%# end %>
 
 <!-- amendmentContainer avec amendment.content -->
-
-
