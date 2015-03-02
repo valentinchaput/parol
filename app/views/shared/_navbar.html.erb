@@ -20,19 +20,24 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li>
+            <%= link_to codes_path do %>
+              <i class="fa fa-legal"></i> <%= t(".messages", default: "Codes de loi") %>
+            <% end %>
+          </li>
+          <li>
             <%#= link_to "#" do %>
               <!-- <i class="fa fa-envelope-o"></i> --> <%#= t(".messages", default: "Messages") %>
             <%# end %>
           </li>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-              <%= image_tag "http://placehold.it/30x30", class: "img-avatar" %>
-              Profile <span class="caret"></span>
+              <%#= image_tag "http://placehold.it/30x30", class: "img-avatar" %>
+              Admin <span class="caret"></span>
             <% end %>
             <ul class="dropdown-menu" role="menu">
               <li>
-                <%= link_to "#" do %>
-                  <i class="fa fa-user"></i> <%= t ".profile", default: "Profile" %>
+                <%= link_to admin_dashboard_path do %>
+                  <i class="fa fa-user"></i> <%= t ".profile", default: "Dashboard" %>
                 <% end %>
               </li>
               <li>
@@ -57,9 +62,9 @@
             <%#= link_to t(".sign_up", default: "Sign up"), new_user_registration_path %>
           </li>
           <li>
-            <%= link_to new_user_session_path do %>
-              <i class="fa fa-lock"></i> <%= t(".sign_in", default: "Sign in") %>
-            <% end %>
+            <%#= link_to new_user_session_path do %>
+              <!-- <i class="fa fa-lock"></i> --> <%#= t(".sign_in", default: "Sign in") %>
+            <%# end %>
             <%#= link_to t(".sign_in", default: "Sign in"), new_user_session_path %>
           </li>
         <% end %>

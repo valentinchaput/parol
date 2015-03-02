@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
 
-  def after_sign_in_path_for(resource)
-    admin_dashboard_path
-  end
+  # def after_sign_in_path_for(resource)
+  #   admin_dashboard_path
+  # end
 
   # private
 
