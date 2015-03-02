@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   get 'law_articles/show'
-
   get 'home/index'
 
   resources :codes, only: [:index, :show] do
