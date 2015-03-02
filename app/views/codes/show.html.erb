@@ -13,16 +13,16 @@
         <!-- on a besoin de la liste des articles concernés par la loi  -->
         <!-- leur titre + leur url (qui redirige vers l'amendment/show -->
 
-        <% @code.articles.each do |article| %>
+        <% @code.code_articles.each do |code_article| %>
           <ul>
-            <li><%= link_to article.article, article_path(article) %></li>
+            <li><%= link_to code_article.article_number, code_article_path(code_article) %></li>
           </ul>
         <% end %>
 
           <%#= link_to amendment.title, law_amendment_path%>
         <br>
         <p>
-          <%= link_to 'back to la Loi', codes_path, class: 'btn btn-primary' %>
+          <%= link_to 'Retour à la liste', codes_path, class: 'btn btn-primary' %>
         </p>
       </div>
     </div>
