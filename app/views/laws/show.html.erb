@@ -10,17 +10,17 @@
       <!-- on a besoin de la liste des articles concernés par la loi  -->
       <!-- leur titre + leur url (qui redirige vers l'amendment/show -->
 
-      <% @law.amendments.each do |amendment| %>
+      <% @law.law_articles.each do |law_article| %>
       <ul>
         <li>
-          <%= link_to amendment.title, law_amendment_path(@law, amendment), class: "list-article" %>
+          <%= link_to law_article.article_number, law_law_article_path(@law, law_article), class: "list-article" %>
           <% end %>
         </li>
       </ul>
     </div>
 
 
-    <div class="col-xs-5 padded">
+<!--     <div class="col-xs-5 padded">
       <br>
       <br>
       <h4>En savoir plus</h4>
@@ -28,6 +28,6 @@
       <%= image_tag 'ecole.jpg', size: '420x200' %>
       <% end %>
     </div>
-
+ -->
   </div>
 </div>

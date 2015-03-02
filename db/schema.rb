@@ -32,34 +32,39 @@ ActiveRecord::Schema.define(version: 20150302092220) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "amendments", force: :cascade do |t|
-    t.integer  "law_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "title"
+    t.string   "chamber"
+    t.string   "author"
+    t.string   "amendment_number"
     t.text     "content"
-    t.text     "description"
+    t.text     "object"
+    t.date     "date"
+    t.string   "status"
+    t.integer  "law_article_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
-  add_index "amendments", ["law_id"], name: "index_amendments_on_law_id", using: :btree
+  add_index "amendments", ["law_article_id"], name: "index_amendments_on_law_article_id", using: :btree
 
-  create_table "articles", force: :cascade do |t|
-    t.string   "title"
+  create_table "code_articles", force: :cascade do |t|
+    t.string   "article_number"
     t.text     "content"
-    t.integer  "code_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
     t.string   "code"
     t.string   "part"
     t.string   "sub_part"
     t.string   "book"
+    t.string   "title"
     t.string   "chapter"
     t.string   "section"
     t.string   "sub_section"
     t.string   "paragraph"
     t.string   "article"
+    t.integer  "code_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
-  add_index "articles", ["code_id"], name: "index_articles_on_code_id", using: :btree
+  add_index "code_articles", ["code_id"], name: "index_code_articles_on_code_id", using: :btree
 
   create_table "codes", force: :cascade do |t|
     t.string   "title"
@@ -68,20 +73,24 @@ ActiveRecord::Schema.define(version: 20150302092220) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "instructions", force: :cascade do |t|
-    t.string   "command"
-    t.integer  "amendment_id"
-    t.integer  "article_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+  create_table "law_articles", force: :cascade do |t|
+    t.string   "article_number"
+    t.string   "content"
+    t.string   "object"
+    t.string   "status"
+    t.integer  "law_id"
+    t.integer  "code_article_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
-  add_index "instructions", ["amendment_id"], name: "index_instructions_on_amendment_id", using: :btree
-  add_index "instructions", ["article_id"], name: "index_instructions_on_article_id", using: :btree
+  add_index "law_articles", ["code_article_id"], name: "index_law_articles_on_code_article_id", using: :btree
+  add_index "law_articles", ["law_id"], name: "index_law_articles_on_law_id", using: :btree
 
   create_table "laws", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
+    t.string   "status"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -105,8 +114,8 @@ ActiveRecord::Schema.define(version: 20150302092220) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "amendments", "laws"
-  add_foreign_key "articles", "codes"
-  add_foreign_key "instructions", "amendments"
-  add_foreign_key "instructions", "articles"
+  add_foreign_key "amendments", "law_articles"
+  add_foreign_key "code_articles", "codes"
+  add_foreign_key "law_articles", "code_articles"
+  add_foreign_key "law_articles", "laws"
 end
