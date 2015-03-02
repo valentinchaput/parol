@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  match '/about',   to: 'pages#about',   via: 'get'
+
   get 'law_articles/show'
 
   get 'home/index'
