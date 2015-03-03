@@ -1,8 +1,31 @@
 <div class="container">
+  <ul class='list-inline'>
+    <li>
+      <%#= link_to 'Retour à la Loi', law_path, class: 'btn btn-primary' %>
+      <%= link_to law_path(@law_article.law), class: 'btn btn-primary' do %>
+        <i class="fa fa-chevron-left"></i>&nbsp; Retour à la Loi
+      <% end %>
+    </li>
+    <li>
+      <%#= link_to law_law_article_path, class: 'btn btn-success' do %>
+        <!-- Article suivant &nbsp;<i class="fa fa-chevron-right"></i> -->
+      <%# end %>
+      <% if @next_article %>
+        <%= link_to law_law_article_path(@next_article), class: 'btn btn-success' do %>
+        Article suivant &nbsp;<i class="fa fa-chevron-right"></i>
+        <% end %>
+      <% else %>
+        <%= link_to home_path, class: 'btn btn-success' do %>
+        Chercher une autre loi &nbsp;<i class="fa fa-chevron-right"></i>
+        <% end %>
+      <% end %>
+    </li>
+  </ul>
 
   <div class="row">
     <div class="col-xs-7">
-      <h2>Code de l'éducation - Article L111-1</h2>
+      <h2>Loi éducation 2014 - Article 2</h2>
+      <h4>Modifie l'article L.111-1 du Code de l'éducation :</h4>
       <!-- <div class="text-justify"> -->
       <p>
         L'éducation est la première priorité nationale. Le service public de l'éducation est conçu et organisé en fonction des élèves et des étudiants. Il contribue à l'égalité des chances et à lutter contre les inégalités sociales et territoriales en matière de réussite scolaire et éducative. Il reconnaît que tous les enfants partagent la capacité d'apprendre et de progresser. <a href="#" class="amendment" data-amendmentId="1">Il veille à l'inclusion scolaire de tous les enfants, sans aucune distinction.</a> Il veille également à la mixité sociale des publics scolarisés au sein des établissements d'enseignement. Pour garantir la réussite de tous, l'école se construit avec la participation des parents, quelle que soit leur origine sociale. <a href="#" class="amendment" data-amendmentId="2">Elle s'enrichit et se conforte par le dialogue et la coopération entre tous les acteurs de la communauté éducative.</a>
