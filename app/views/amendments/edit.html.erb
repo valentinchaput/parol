@@ -1,0 +1,10 @@
+<%= form_for(@amendment) do |f| %>
+  <%= f.string :chamber %>
+  <%= f.string :author %>
+  <%= f.string :amendment_number %>
+  <%= f.text :content %>
+  <%= f.text :object %>
+  <%= f.date :date %>
+  <%= f.string :status %>
+  <%#= f.string :porteur %>
+<% end %>

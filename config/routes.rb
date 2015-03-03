@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'amendments/new'
+
+  get 'amendments/edit'
+
   devise_for :users
   ActiveAdmin.routes(self)
 

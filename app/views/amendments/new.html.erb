@@ -1,0 +1,13 @@
+<h1>Amendments#new</h1>
+<p>Find me in app/views/amendments/new.html.erb</p>
+
+<%= form_for(@amendment) do |f| %>
+  <%= f.string :chamber %>
+  <%= f.string :author %>
+  <%= f.string :amendment_number %>
+  <%= f.text :content %>
+  <%= f.text :object %>
+  <%= f.date :date %>
+  <%= f.string :status %>
+  <%#= f.string :porteur %>
+<% end %>
