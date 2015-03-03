@@ -1,21 +1,24 @@
-#body-about {
+#banner {
   background-image: asset-url('bibliotheque.png');
   opacity: 1;
   background-size: cover;
   height: 670px;
-  h2
-  {
-    font-size: 40px;
-    color: white;
-  }
-  p
-  {
-    color: white;
-    font-size: 20px;
-    font-weight: 100;
-  }
 }
 
-.about-block {
-  padding-top: 200px;
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+h2 {
+  font-size: 40px;
+  color: white;
+}
+
+p {
+  color: white;
+  font-size: 20px;
+  font-weight: 100;
 }

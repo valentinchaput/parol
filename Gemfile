@@ -13,6 +13,7 @@ gem "devise"
 gem "pundit"
 gem "paperclip"
 gem "aws-sdk"
+gem "octokit"
 
 gem "jquery-rails"
 gem "sass-rails", "~> 5.0"
@@ -25,6 +26,8 @@ gem "devise-i18n"
 gem "devise-i18n-views"
 
 gem "mechanize"
+
+gem 'activeadmin', github: 'activeadmin'
 
 group :development, :test do
   gem "spring"
