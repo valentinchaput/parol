@@ -1,11 +1,5 @@
 $(document).ready(function() {
 
-  $(document).keyup(function(e){
-    if (e.keyCode == 67) {
-      var matchedText = window.getSelection().toString()
-    }
-  })
-
   $('.amendment').on('click', function(e) { // on click sur l'amendement texte
     e.preventDefault() // j'annule le comportement par défault au click, par exemple, au click sur un lien = ça remonte la page
     amendmentId = $(this).data('amendmentid'); // on choppe l'id de l'amendment
