@@ -2,7 +2,7 @@
   <ul class='list-inline'>
     <li>
       <%#= link_to 'Retour à la Loi', law_path, class: 'btn btn-primary' %>
-      <%= link_to law_path, class: 'btn btn-primary' do %>
+      <%= link_to law_path(@law_article.law), class: 'btn btn-primary' do %>
         <i class="fa fa-chevron-left"></i>&nbsp; Retour à la Loi
       <% end %>
     </li>
