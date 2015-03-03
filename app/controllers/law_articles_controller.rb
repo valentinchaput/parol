@@ -1,4 +1,6 @@
 class LawArticlesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :show, :next_article ]
+
   def show
     @law_article = LawArticle.find(params[:id])
   end
