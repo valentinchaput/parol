@@ -8,11 +8,12 @@
 
         <h1><%= @code.title %></h1>
         <h4><%= @code.description %></h4>
-        <br>
+
 
         <!-- on a besoin de la liste des articles concernés par la loi  -->
         <!-- leur titre + leur url (qui redirige vers l'amendment/show -->
 
+        <br>
         <% @code.code_articles.each do |code_article| %>
            <ul>
              <li>
@@ -22,11 +23,9 @@
             </li>
            </ul>
         <% end %>
-
           <%#= link_to amendment.title, law_amendment_path%>
         <br>
-        <p>
-          <%= link_to 'Retour à la liste', codes_path, class: 'btn btn-primary' %>
+        <p><%= link_to 'Retour à la liste', codes_path, class: 'btn btn-primary' %>
         </p>
       </div>
     </div>

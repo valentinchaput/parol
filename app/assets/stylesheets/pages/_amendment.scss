@@ -3,12 +3,21 @@
 }
 
 .padded {
-  padding: 10px 25px 25px 25px;
+  padding: 25px 0px 10px 0px;
 }
 
 a.amendment {
   background-color:#A2DFFF;
   color: #333;
+
+  &.active  {
+    background-color: #FFFAA2;
+
+    &:hover {
+      background-color: lighten(#FFFAA2, 10%);
+    }
+  }
+
   &:hover {
     background-color: #078FB3;
     cursor: pointer;
@@ -18,4 +27,10 @@ a.amendment {
 
 a.bg-active {
   background-color: #078FB3;
+
+}
+
+.bg-active {
+  position: fixed;
+  right: 0;
 }

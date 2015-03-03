@@ -27,6 +27,8 @@ gem "devise-i18n-views"
 
 gem "mechanize"
 
+gem 'activeadmin', github: 'activeadmin'
+
 group :development, :test do
   gem "spring"
   gem "annotate"

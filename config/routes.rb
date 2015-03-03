@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'law_articles/show'
-
-  get 'home/index'
+  devise_for :users
+  ActiveAdmin.routes(self)
 
   resources :codes, only: [:index, :show] do
     resources :code_article, only: :index
@@ -11,5 +10,4 @@ Rails.application.routes.draw do
     resources :law_articles, only: [:show]
   end
 
-  devise_for :users
 end
