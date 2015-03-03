@@ -7,12 +7,13 @@
      <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
       <h1><%= @code_article.article_number %></h1>
       <br>
-      <p><%# @code_article.part%></p>
-      <p><%# @code_article.sub_part%></p>
-      <p><%# @code_article.book%></p>
+      <p><%= @code_article.code %></p>
+      <p><%= @code_article.part%></p>
+      <p><%= @code_article.sub_part%></p>
+      <p><%= @code_article.book%></p>
       <p><%= @code_article.title%></p>
-      <p><%# @code_article.chapter%></p>
-      <p><%# @code_article.section%></p>
+      <p><%= @code_article.chapter%></p>
+      <p><%= @code_article.section%></p>
       <br>
       <p><%=@code_article.content%></p>
       <br>

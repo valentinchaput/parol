@@ -9,7 +9,7 @@
 class CodeArticle
   HEADER_PATTERN = /---\n(?<header>.*)---\n(?<content>.*)/m
 
-  attr_accessor :article_number, :title, :content
+  attr_accessor :article_number, :title, :content, :code, :part, :sub_part, :book, :title, :chapter, :section
 
   def self.find(root_path, article_path)
     path = "#{root_path}/#{article_path}"
@@ -24,8 +24,14 @@ class CodeArticle
     end
 
     code_article = CodeArticle.new
-    code_article.article_number = header[:code_article]
+    code_article.code = header[:code]
+    code_article.part = header[:part]
+    code_article.sub_part = header[:sub_part]
+    code_article.book = header[:book]
     code_article.title = header[:title]
+    code_article.chapter = header[:chapter]
+    code_article.article_number = header[:article_number]
+    code_article.section = header[:section]
     code_article.content = match[:content]
 
     return code_article
