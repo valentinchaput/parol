@@ -14,9 +14,13 @@
         <!-- leur titre + leur url (qui redirige vers l'amendment/show -->
 
         <% @code.code_articles.each do |code_article| %>
-          <ul>
-            <li><%= link_to code_article.article_number, code_article_path(code_article) %></li>
-          </ul>
+           <ul>
+             <li>
+               <%= link_to code_code_article_index_path(@code, path: code_article.article_path) do %>
+                <%= code_article.article_number %>
+               <% end %>
+            </li>
+           </ul>
         <% end %>
 
           <%#= link_to amendment.title, law_amendment_path%>

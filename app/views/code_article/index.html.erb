@@ -6,16 +6,20 @@
    <div class="row">
      <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
       <h1><%= @code_article.article_number %></h1>
+      <h3><%= @code_article.code %></h3>
       <br>
-      <p><%= @code_article.code %></p>
-      <p><%= @code_article.part%></p>
-      <p><%= @code_article.sub_part%></p>
-      <p><%= @code_article.book%></p>
-      <p><%= @code_article.title%></p>
-      <p><%= @code_article.chapter%></p>
-      <p><%= @code_article.section%></p>
+      <ul, style="list-style: none;">
+      <li><i><%= @code_article.part%></i></li>
+      <li style="margin-left:10px"><i><%= @code_article.sub_part%></i></li>
+      <li style="margin-left:20px"><i><%= @code_article.book%></i></li>
+      <li style="margin-left:30px"><i><%= @code_article.title%></i></li>
+      <li style="margin-left:40px"><i><%= @code_article.chapter%></i></li>
+      <li style="margin-left:50px"><i><%=@code_article.section%></i></li>
+      </ul>
       <br>
-      <p><%=@code_article.content%></p>
+      <% @code_article.content.split("\n").each do |alinea| %>
+        <p><%= alinea %></p>
+      <% end %>
       <br>
      </div>
    </div>
@@ -23,7 +27,7 @@
    <div class="row">
     <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
       <ul class="list-inline">
-        <li><%= link_to 'Retour au Code', codes_path, class: 'btn btn-primary' %></li>
+        <li><%= link_to 'Retour au Code', code_path(@code), class: 'btn btn-primary' %></li>
         <li><%= link_to 'Retour à la liste', codes_path, class: 'btn btn-success' %></li>
       </ul>
     </div>

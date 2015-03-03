@@ -7,9 +7,10 @@
 # end
 
 class CodeArticle
+  include Comparable
   HEADER_PATTERN = /---\n(?<header>.*)---\n(?<content>.*)/m
 
-  attr_accessor :article_number, :title, :content, :code, :part, :sub_part, :book, :title, :chapter, :section
+  attr_accessor :article_path, :article_number, :title, :content, :code, :part, :sub_part, :book, :chapter, :section
 
   def self.find(root_path, article_path)
     path = "#{root_path}/#{article_path}"
@@ -24,6 +25,7 @@ class CodeArticle
     end
 
     code_article = CodeArticle.new
+    code_article.article_path = article_path
     code_article.code = header[:code]
     code_article.part = header[:part]
     code_article.sub_part = header[:sub_part]
@@ -35,6 +37,10 @@ class CodeArticle
     code_article.content = match[:content]
 
     return code_article
+  end
+
+  def <=>(other)
+    self.article_number <=> other.article_number
   end
 
   private
