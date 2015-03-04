@@ -3,6 +3,7 @@ class LawArticlesController < ApplicationController
 
   def show
     @law_article = LawArticle.find(params[:id])
+    @amendment = Amendment.new
   end
 
   def next_article

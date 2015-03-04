@@ -1,13 +1,21 @@
-<h1>Amendments#new</h1>
-<p>Find me in app/views/amendments/new.html.erb</p>
-
-<%= form_for(@amendment) do |f| %>
-  <%= f.string :chamber %>
-  <%= f.string :author %>
-  <%= f.string :amendment_number %>
-  <%= f.text :content %>
-  <%= f.text :object %>
-  <%= f.date :date %>
-  <%= f.string :status %>
-  <%#= f.string :porteur %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-4">
+      <div class="amendment">
+        <h4 class="text-center">Créer un Amendment</h4>
+        <%= simple_form_for(@amendment) do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :chamber, label: "Chambre :" %> <!-- menu déroulant : Gvt, AN, Sénat  -->
+          <%= f.input :author, label: "Auteur(s) :" %>
+          <%= f.input :amendment_number, label: "N° Amendement :" %>
+          <%= f.input :content, label: "Contenu :" %>
+          <%= f.input :object, label: "Exposé des motifs :" %>
+          <%= f.input :date, label: "Date de vote :", placeholder: "12/02/2015" %>
+          <%= f.input :status, label: "Statut :" %> <!-- menu déroulant : adopté...  -->
+          <%#= f.string :porteur %>
+          <%= f.button :submit, value: "Enregistrer", class:"center-block btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
