@@ -32,14 +32,14 @@ $(document).ready(function() {
 // mode edition d'un amendement
 $(document).on('click', '.btn-edition', function(){ // enter edition mode
   console.log("j'édite")
-  $(this).removeClass('btn-edition').addClass('btn-edition-close')
+  $(this).removeClass('btn-edition').addClass('btn-edition-close') // btn pour js
   makeEditable()
   editionMode()
 })
 
 $(document).on('click', '.btn-edition-close', function(){ // escape edition mode
   console.log("je n'édite plus")
-  $(this).removeClass('btn-edition-close').addClass('btn-edition')
+  $(this).removeClass('btn-edition-close').addClass('btn-edition').addClass('btn-success')
   makeReadable()
 })
 

@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+
+    <div class="col-xs-11">
       <ul class='list-inline'>
         <li>
-          <%#= link_to 'Retour à la Loi', law_path, class: 'btn btn-primary' %>
-          <%= link_to law_path(@law), class: 'btn btn-primary' do %>
-            <i class="fa fa-chevron-left"></i>&nbsp; Retour à la Loi
+          <%= link_to law_path(@law_article.law), class: 'btn btn-default' do %>
+            <i class="fa fa-chevron-left"></i>&nbsp; Retour à la loi
           <% end %>
         </li>
         <li>
@@ -13,16 +13,19 @@
             <!-- Article suivant &nbsp;<i class="fa fa-chevron-right"></i> -->
           <%# end %>
           <% if @next_article %>
-            <%= link_to law_law_article_path(@next_article), class: 'btn btn-success' do %>
+            <%= link_to law_law_article_path(@next_article), class: 'btn btn-primary' do %>
             Article suivant &nbsp;<i class="fa fa-chevron-right"></i>
             <% end %>
           <% else %>
-            <%= link_to home_path, class: 'btn btn-success' do %>
+            <%= link_to home_path, class: 'btn btn-default' do %>
             Chercher une autre loi &nbsp;<i class="fa fa-chevron-right"></i>
             <% end %>
           <% end %>
         </li>
       </ul>
+    </div>
+    <div class='col-xs-1'>
+      <a class='btn-edition btn btn-edit'><i class="fa fa-pencil"></i></a>
     </div>
   </div>
 
@@ -32,6 +35,33 @@
       <h2><%= @law.title %> - <%= @article.article_number %></h2>
       <h4><%= @article.object %> :</h4>
       <%= format_article_content(@article) %>
+      <!-- texte en dur -->
+      <!-- <h2>Loi éducation 2013 - Article 2</h2>
+      <h4>Modifie l'article L.111-1 du Code de l'éducation :</h4>
+      <p>
+        L'éducation est la première priorité nationale. Le service public de l'éducation est conçu et organisé en fonction des élèves et des étudiants. Il contribue à l'égalité des chances et à lutter contre les inégalités sociales et territoriales en matière de réussite scolaire et éducative. Il reconnaît que tous les enfants partagent la capacité d'apprendre et de progresser. <a href="#" class="amendment" data-amendmentId="1">Il veille à l'inclusion scolaire de tous les enfants, sans aucune distinction.</a> Il veille également à la mixité sociale des publics scolarisés au sein des établissements d'enseignement. Pour garantir la réussite de tous, l'école se construit avec la participation des parents, quelle que soit leur origine sociale. <a href="#" class="amendment" data-amendmentId="2">Elle s'enrichit et se conforte par le dialogue et la coopération entre tous les acteurs de la communauté éducative.</a>
+        <br>
+        <br>
+       Outre la transmission des connaissances, la Nation fixe comme mission première à l'école de faire partager aux élèves les valeurs de la République. <a href="#" class="amendment" data-amendmentId="1">Le service public de l'éducation fait acquérir à tous les élèves le respect de l'égale dignité des êtres humains, de la liberté de conscience et de la laïcité.</a> Par son organisation et ses méthodes, comme par la formation des maîtres qui y enseignent, il favorise la coopération entre les élèves.
+        <br>
+        <br>
+       Dans l'exercice de leurs fonctions, les personnels mettent en oeuvre ces valeurs.
+        <br>
+        <br>
+       Le droit à l'éducation est garanti à chacun afin de lui permettre de développer sa personnalité, d'élever son niveau de formation initiale et continue, de s'insérer dans la vie sociale et professionnelle, d'exercer sa citoyenneté.
+        <br>
+        <br>
+       Pour garantir ce droit dans le respect de l'égalité des chances, des aides sont attribuées aux élèves et aux étudiants selon leurs ressources et leurs mérites. La répartition des moyens du service public de l'éducation tient compte des différences de situation, notamment en matière économique et sociale.
+        <br>
+        <br>
+       Elle a pour but de renforcer l'encadrement des élèves dans les écoles et établissements d'enseignement situés dans des zones d'environnement social défavorisé et des zones d'habitat dispersé, et de permettre de façon générale aux élèves en difficulté, quelle qu'en soit l'origine, en particulier de santé, de bénéficier d'actions de soutien individualisé.
+        <br>
+        <br>
+       L'école garantit à tous les élèves l'apprentissage et la maîtrise de la langue française.
+        <br>
+        <br>
+       L'acquisition d'une culture générale et d'une qualification reconnue est assurée à tous les jeunes, quelle que soit leur origine sociale, culturelle ou géographique.
+      </p> -->
     </div>
 
     <!-- <div class="col-xs-5 hidden" id="amendment-creation"> -->

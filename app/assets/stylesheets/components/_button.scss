@@ -1,3 +1,56 @@
 /* -------------------------------------
  * You killer button SASS module
  * ------------------------------------- */
+
+ .btn-edition:after {
+  content: "  Editer";
+ }
+
+ .btn-edition-close:after {
+  content: "  Sauvegarder";
+ }
+
+ .btn-edit {
+  background-color: $red-parol;
+  color: white;
+  border-color: $red-parol-hover;
+    &:hover {
+    background-color: $red-parol-hover;
+    border-color: $red-parol-hover;
+    color:white;
+  }
+ }
+
+.btn-gray {
+  background-color: $gray;
+  color: white;
+  border-color: $gray-dark;
+    &:hover {
+    background-color: $gray-dark;
+    border-color: $gray-darker;
+    color:white;
+  }
+}
+
+ //  .btn-edit {
+ //  background-color: $gray;
+ //  color: white;
+ //  border-color: $gray-dark;
+ //    &:hover {
+ //    background-color: $gray-dark;
+ //    border-color: $gray-darker;
+ //    color:white;
+ //  }
+ // }
+
+
+ // .btn-quit-edit {
+ //  background-color: $gray-dark;
+ //  color: white;
+ //  border-color: $gray-darker;
+ //  &:hover {
+ //    background-color: $gray;
+ //    color: white;
+ //    border-color: $gray-dark;
+ //  }
+ // }
