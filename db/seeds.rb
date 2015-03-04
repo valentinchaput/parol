@@ -11,6 +11,7 @@ codes = Code.create! [
     {
   title:        "Code de l'éducation",
   description:  "Ensemble des lois portant sur l'éducation, de l'école et de la formation.",
+  github_path:  "french_law/code_education"
   },
     {
   title:        "Code des transports",

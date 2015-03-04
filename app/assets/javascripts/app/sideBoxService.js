@@ -29,10 +29,39 @@ $(document).ready(function() {
   })
 })
 
-$('.article-area').mouseup(function(){
-  if (window.getSelection().toString().length != 0) {
-    console.log(window.getSelection().toString())
 
-  }
+$(document).on('click', '.btn-edition', function(){ // enter edition mode
+  console.log("j'édite")
+  $(this).removeClass('btn-edition').addClass('btn-edition-close')
+  makeEditable()
+  editionMode()
 })
 
+$(document).on('click', '.btn-edition-close', function(){ // escape edition mode
+  console.log("je n'édite plus")
+  $(this).removeClass('btn-edition-close').addClass('btn-edition')
+  makeReadable()
+})
+
+
+
+function editionMode() {
+  $(document).on('mouseup', '.editable', function(){
+    if (window.getSelection().toString().length != 0) {
+      console.log(window.getSelection().toString())
+      // TODO : remove hidden class on add box
+
+    } else {
+      console.log('ajouter un nouveau truc')
+    }
+  })
+
+}
+
+function makeEditable() {
+  $('.article-area').addClass('editable');
+}
+
+function makeReadable() {
+  $('.article-area').removeClass('editable');
+}
