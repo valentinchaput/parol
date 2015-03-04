@@ -7,22 +7,25 @@
 }
 
 a.amendment {
-  background-color:#A2DFFF;
-  color: #333;
+  background-color: rgba(70, 154, 224, 0.15);
+  color: black;
+  &:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #2980b9;
+  }
 
   &.active  {
-    background-color: #FFFAA2;
+    color: white;
+    background-color: #469AE0;
 
     &:hover {
-      background-color: lighten(#FFFAA2, 10%);
+      color: white;
+      background-color: #2980b9;
+      // background-color: lighten(#FFFAA2, 10%);
     }
   }
 
-  &:hover {
-    background-color: #078FB3;
-    cursor: pointer;
-    color: #333;
-  }
 }
 
 a.bg-active {

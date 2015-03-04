@@ -11,6 +11,17 @@
  }
 
  .btn-edit {
+  background-color: $red-parol;
+  color: white;
+  border-color: $red-parol-hover;
+    &:hover {
+    background-color: $red-parol-hover;
+    border-color: $red-parol-hover;
+    color:white;
+  }
+ }
+
+.btn-gray {
   background-color: $gray;
   color: white;
   border-color: $gray-dark;
@@ -19,31 +30,27 @@
     border-color: $gray-darker;
     color:white;
   }
- }
+}
+
+ //  .btn-edit {
+ //  background-color: $gray;
+ //  color: white;
+ //  border-color: $gray-dark;
+ //    &:hover {
+ //    background-color: $gray-dark;
+ //    border-color: $gray-darker;
+ //    color:white;
+ //  }
+ // }
 
 
- .btn-quit-edit {
-  background-color: $gray-dark;
-  color: white;
-  border-color: $gray-darker;
-    &:hover {
-    background-color: $gray;
-    color: white;
-    border-color: $gray-dark;
-  }
- }
-
-//  .pvw-title span {
-//   display: none;
-// }
-// .pvw-title:after {
-//   content: 'whatever it is you want to add';
-// }
-
-  // border : 1px solid;
-  // border-color: red;
-  // border-radius: 2px;
-  // padding: 10px;
-  // content: "edit mode";
-  // color: white;
-  // background-color: orange;
+ // .btn-quit-edit {
+ //  background-color: $gray-dark;
+ //  color: white;
+ //  border-color: $gray-darker;
+ //  &:hover {
+ //    background-color: $gray;
+ //    color: white;
+ //    border-color: $gray-dark;
+ //  }
+ // }
