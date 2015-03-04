@@ -1,8 +1,8 @@
 .list-article {
   font-size: 20px;
   font-style: italic;
-  color: #29A4AB;
+  color: $red-parol;
   &:hover {
-    color: #024462;
+    color: $red-parol-hover;
   }
 }
