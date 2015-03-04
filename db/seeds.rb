@@ -50,3 +50,16 @@ law_article = law.law_articles.create! [
   object: "Pas d'exposé des motifs",
   status: "en discussion"
   }]
+
+Amendment.destroy_all
+amendment = amendments[0]
+amendment = law_article.amendments.create! [
+    {
+  chamber:          "Assemblée Nationale",
+  author:           "Thomas Chrétien",
+  amendment_number:  "37",
+  content:          "Apprendre le js est un objectif national pour l'éducation de nos enfants",
+  object:           "Sans js, on ne peut pas faire d'animation",
+  date:             "2015-03-04",
+  status:           "NA"
+  }]

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   ActiveAdmin.routes(self)
 
@@ -9,5 +10,7 @@ Rails.application.routes.draw do
   resources :laws, only: [:index, :show] do
     resources :law_articles, only: [:show]
   end
+
+  resources :amendments
 
 end

@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-
-
   $('.amendment').on('click', function(e) { // on click sur l'amendement texte
     e.preventDefault() // j'annule le comportement par défault au click, par exemple, au click sur un lien = ça remonte la page
     amendmentId = $(this).data('amendmentid'); // on choppe l'id de l'amendment
@@ -50,14 +48,40 @@ $(document).on('click', '.btn-edition-close', function(){ // escape edition mode
 function editionMode() {
   $(document).on('mouseup', '.editable', function(){
     if (window.getSelection().toString().length != 0) {
-      console.log(window.getSelection().toString())
+      $('.initial-selection h3 span').text(window.getSelection().toString())
+
       // TODO : remove hidden class on add box
+      $('.new-amendment').removeClass('hidden');
+      $('body').on('click', '.btn-text-replace', function(){
+        textIncrementation()
+        $('.btn-text-replace').addClass('hidden')
+        $('.form-container').removeClass('hidden')
+
+      })
 
     } else {
       console.log('ajouter un nouveau truc')
     }
   })
+}
 
+function textIncrementation() {
+  var selection = window.getSelection().toString()
+  var selectionToMatch = $("<a class='editable-amendment'>").text(window.getSelection().toString())[0].outerHTML
+  var textToReplace = $('.article-area p').html()
+  var newText = textToReplace.replace(selection, selectionToMatch)
+  $('.article-area p').html(newText)
+  $('.editable-amendment').after("<a class='new-text'></a>")
+
+
+
+  $('body').on('keyup', '#amendment_content', function(){
+    if (!$('.editable-amendment').hasClass('replaced')) {
+      $('.editable-amendment').addClass('replaced')
+    }
+    var newText = $('#amendment_content').val()
+    $('.new-text').text(newText)
+  })
 }
 
 function makeEditable() {

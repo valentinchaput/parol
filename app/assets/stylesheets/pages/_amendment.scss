@@ -34,3 +34,19 @@ a.bg-active {
   position: fixed;
   right: 0;
 }
+
+.initial-selection {
+  span {
+    line-height: 1.6;
+    background: rgb(255, 250, 162);
+  }
+}
+
+.editable-amendment {
+  &.replaced {
+    text-decoration : line-through;
+    color: red;
+  }
+
+
+}
