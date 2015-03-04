@@ -64,7 +64,7 @@
         <div class="initial-selection">
           <h3><span></span></h3>
         </div>
-        <a class='btn btn-text-replace btn-success'>Modifier la selection</a>
+        <a class='btn btn-text-replace btn-success'>Créer un amendement</a>
         <div class="form-container hidden">
 
           <%= simple_form_for(@amendment) do |f| %>
@@ -72,12 +72,13 @@
             <%#= f.input :chamber, label: "Chambre :" %> <!-- menu déroulant : Gvt, AN, Sénat  -->
             <%#= f.input :author, label: "Auteur(s) :" %>
             <%#= f.input :amendment_number, label: "N° Amendement :" %>
-            <%= f.input :content, label: "Contenu :" %>
+            <%= f.input :content, label: "Est remplacé par :" %>
             <%= f.input :object, label: "Exposé des motifs :" %>
             <%#= f.input :date, label: "Date de vote :", placeholder: "12/02/2015" %>
             <%#= f.input :status, label: "Statut :" %> <!-- menu déroulant : adopté...  -->
             <%#= f.string :porteur %>
             <%= f.button :submit, value: "Enregistrer", class:"center-block btn btn-success" %>
+            <%= f.button :submit, value: "Annuler", class:"center-block btn btn-danger" %>
           <% end %>
         </div>
       </div>
