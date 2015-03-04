@@ -4,7 +4,6 @@
     <div class="col-xs-11">
       <ul class='list-inline'>
         <li>
-          <%#= link_to 'Retour à la Loi', law_path, class: 'btn btn-primary' %>
           <%= link_to law_path(@law_article.law), class: 'btn btn-default' do %>
             <i class="fa fa-chevron-left"></i>&nbsp; Retour à la loi
           <% end %>
@@ -32,9 +31,13 @@
 
   <div class="row">
     <div class="col-xs-7 article-area">
-      <h2>Loi éducation 2013 - Article 2</h2>
+      <a class='btn-edition'>Editer</a>
+      <h2><%= @law.title %> - <%= @article.article_number %></h2>
+      <h4><%= @article.object %> :</h4>
+      <%= format_article_content(@article) %>
+      <!-- texte en dur -->
+      <!-- <h2>Loi éducation 2013 - Article 2</h2>
       <h4>Modifie l'article L.111-1 du Code de l'éducation :</h4>
-      <!-- <div class="text-justify"> -->
       <p>
         L'éducation est la première priorité nationale. Le service public de l'éducation est conçu et organisé en fonction des élèves et des étudiants. Il contribue à l'égalité des chances et à lutter contre les inégalités sociales et territoriales en matière de réussite scolaire et éducative. Il reconnaît que tous les enfants partagent la capacité d'apprendre et de progresser. <a href="#" class="amendment" data-amendmentId="1">Il veille à l'inclusion scolaire de tous les enfants, sans aucune distinction.</a> Il veille également à la mixité sociale des publics scolarisés au sein des établissements d'enseignement. Pour garantir la réussite de tous, l'école se construit avec la participation des parents, quelle que soit leur origine sociale. <a href="#" class="amendment" data-amendmentId="2">Elle s'enrichit et se conforte par le dialogue et la coopération entre tous les acteurs de la communauté éducative.</a>
         <br>
@@ -58,7 +61,7 @@
         <br>
         <br>
        L'acquisition d'une culture générale et d'une qualification reconnue est assurée à tous les jeunes, quelle que soit leur origine sociale, culturelle ou géographique.
-      </p>
+      </p> -->
     </div>
 
     <!-- <div class="col-xs-5 hidden" id="amendment-creation"> -->
@@ -67,43 +70,50 @@
         <div class="initial-selection">
           <h3><span></span></h3>
         </div>
-        <a class='btn btn-text-replace btn-success'>Créer un amendement</a>
+        <a class='btn btn-text-replace btn-success'>Déposer un amendement</a>
         <div class="form-container hidden">
 
           <%= simple_form_for(@amendment) do |f| %>
             <%= f.error_notification %>
-            <%#= f.input :chamber, label: "Chambre :" %> <!-- menu déroulant : Gvt, AN, Sénat  -->
-            <%#= f.input :author, label: "Auteur(s) :" %>
-            <%#= f.input :amendment_number, label: "N° Amendement :" %>
+            <%#= f.input :initial_text, label: "Texte initial :" %>
             <%= f.input :content, label: "Est remplacé par :" %>
             <%= f.input :object, label: "Exposé des motifs :" %>
+            <%#= f.input :amendment_number, label: "N° Amendement :" %>
+            <%#= f.input :author, label: "Auteur(s) :" %>
+            <%#= f.input :chamber, label: "Chambre :" %> <!-- menu déroulant : Gvt, AN, Sénat  -->
+            <%#= f.select :category, [['French','french'],['Belgian','belgian'],['Italian','italian'],['Chinese','chinese'],['Japanese','japanese']] %>
             <%#= f.input :date, label: "Date de vote :", placeholder: "12/02/2015" %>
             <%#= f.input :status, label: "Statut :" %> <!-- menu déroulant : adopté...  -->
             <%#= f.string :porteur %>
-            <%= f.button :submit, value: "Enregistrer", class:"center-block btn btn-success" %>
-            <%= f.button :submit, value: "Annuler", class:"center-block btn btn-danger" %>
+            <ul class="list-inline text-center">
+              <li><%#= f.button :submit, value: "Enregistrer", class: "center-block btn btn-success" %>
+              <!-- <i class="fa fa-floppy-o"></i> -->
+
+              <%= f.button :submit, class: "center-block btn btn-success" do %>
+                <i class="fa fa-floppy-o"></i>&nbsp; Enregistrer
+              <% end %></li>
+
+
+              <li><%= f.button :submit, value: "Annuler", class:"center-block btn btn-danger" %></li>
+            </ul>
           <% end %>
         </div>
       </div>
 
-    <div class="col-xs-5 hidden" id="amendment_details_1">
-      <div class="side-border padded"><!-- insérer l'instruction d'amendement (n°, statut, auteur, objet...) -->
-        <h3>Amendement n°57</h3>
-        <p>Auteur: Jules Ferry Jr.</p>
-        <p>Statut: En discussion (Assemblée)</p>
-        <p>Objet: Mettre en avant la laïcité et l'égalité de tous les enfants face à l'école.</p>
-        <p>Date: 12/01/2015</p>
+    <% @amendments.each_with_index do |amendement, index| %>
+      <div class="col-xs-5 hidden" id="amendment_details_<%= index %>">
+        <div class="side-border padded"><!-- insérer l'instruction d'amendement (n°, statut, auteur, objet...) -->
+          <h3>Amendement n°<%= amendement.amendment_number %></h3>
+          <p>Auteur: <%= amendement.author %></p>
+          <p>Statut: <%= amendement.status %> (<%= amendement.chamber %>)</p>
+          <p>Objet: <%= amendement.object %></p>
+          <p>Date: <%= amendement.date %></p>
+          <p>Texte initial :</p>
+          <div><%= simple_format(amendement.initial_text) %></div>
+          <p>Texte modifié :</p>
+          <div><%= simple_format(amendement.content) %></div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-xs-5 hidden" id="amendment_details_2">
-      <div class="side-border padded"><!-- insérer l'instruction d'amendement (n°, statut, auteur, objet...) -->
-        <h3>Amendement n°42</h3>
-        <p>Auteur: Jean-Michel Debré</p>
-        <p>Statut: Adopté (Assemblée)</p>
-        <p>Objet: Rajouté dialogue.</p>
-        <p>Date: 15/03/2014</p>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>

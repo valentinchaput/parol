@@ -1,9 +1,11 @@
 $(document).ready(function() {
 
+// mode lecture : cliquer sur une zone de texte surlignée permet d'afficher son amendement correspdt
   $('.amendment').on('click', function(e) { // on click sur l'amendement texte
-    e.preventDefault() // j'annule le comportement par défault au click, par exemple, au click sur un lien = ça remonte la page
-    amendmentId = $(this).data('amendmentid'); // on choppe l'id de l'amendment
-    var that = $(this) // trick js
+    e.preventDefault(); // j'annule le comportement par défault au click, par exemple, au click sur un lien = ça remonte la page
+
+    var amendmentId = $(this).data('amendmentid'); // on choppe l'id de l'amendment
+    var that = $(this); // trick js
 
     if ($('.bg-active').length) { // si il y a déjà un amendement displayed
       if (that.hasClass('active')) { // si on click sur le l'amendment déjà display
@@ -11,25 +13,23 @@ $(document).ready(function() {
       } else {
         $('.active').removeClass('active'); // sinon, on remove l'état actif des éléments actifs
         $('.bg-active').removeClass('bg-active').addClass('hidden'); // on enlève l'amendement précédent de la box
-        getAmendment(amendmentId)
+        getAmendment(amendmentId);
       }
-
-    } else {
-      getAmendment(amendmentId)
+    }
+    else {
+      getAmendment(amendmentId);
     }
 
+    // mode lecture : affiche également les zones de texte également concernées par le même amendement
     function getAmendment(amendmentId) {
       $('#amendment_details_' + amendmentId).toggleClass('bg-active').toggleClass('hidden');
-      if ($('[data-amendmentid="' + amendmentId + '"]').size() > 1) {
-        $('[data-amendmentid="' + amendmentId + '"]').toggleClass('active');
-      } else {
-        that.toggleClass('active')
-      }
+      $('.amendment.active').toggleClass('active');
+      that.toggleClass('active');
     }
   })
 })
 
-
+// mode edition d'un amendement
 $(document).on('click', '.btn-edition', function(){ // enter edition mode
   console.log("j'édite")
   $(this).removeClass('btn-edition').addClass('btn-edition-close') // btn pour js
@@ -44,7 +44,7 @@ $(document).on('click', '.btn-edition-close', function(){ // escape edition mode
 })
 
 
-
+// sélection de la zone de texte à modifier
 function editionMode() {
   $(document).on('mouseup', '.editable', function(){
     if (window.getSelection().toString().length != 0) {
@@ -65,6 +65,7 @@ function editionMode() {
   })
 }
 
+// incrémentation de la nouvelle zone de texte
 function textIncrementation() {
   var selection = window.getSelection().toString()
   var selectionToMatch = $("<a class='editable-amendment'>").text(window.getSelection().toString())[0].outerHTML
@@ -72,7 +73,6 @@ function textIncrementation() {
   var newText = textToReplace.replace(selection, selectionToMatch)
   $('.article-area p').html(newText)
   $('.editable-amendment').after("<a class='new-text'></a>")
-
 
 
   $('body').on('keyup', '#amendment_content', function(){
