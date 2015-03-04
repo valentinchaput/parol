@@ -32,8 +32,8 @@ $(document).ready(function() {
 
 $(document).on('click', '.btn-edition', function(){ // enter edition mode
   console.log("j'édite")
-  $(this).removeClass('btn-edition').addClass('btn-edition-close')
-  $(this).removeClass('btn-edit').addClass('btn-quit-edit')
+  $(this).removeClass('btn-edition').addClass('btn-edition-close') // btn pour js 
+  $(this).removeClass('btn-edit').addClass('btn-quit-edit') // btn pour css
   makeEditable()
   editionMode()
 })
