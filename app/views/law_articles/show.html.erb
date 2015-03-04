@@ -69,7 +69,12 @@
         <div class="initial-selection">
           <h3><span></span></h3>
         </div>
-        <a class='btn btn-text-replace btn-success'>Déposer un amendement</a>
+        <!-- <a class='btn btn-text-replace btn-success'>Déposer un amendement</a> -->
+        <%= link_to "#", class: 'btn btn-text-replace btn-success' do %>
+          <i class="fa fa-download"></i>&nbsp;Déposer un amendement
+          <!-- <i class="fa fa-file-text-o"></i> -->
+        <% end %>
+
         <div class="form-container hidden">
 
           <%= simple_form_for(@amendment) do |f| %>
@@ -85,12 +90,12 @@
             <%#= f.input :status, label: "Statut :" %> <!-- menu déroulant : adopté...  -->
             <%#= f.string :porteur %>
             <ul class="list-inline text-center">
-              <li><%#= f.button :submit, value: "Enregistrer", class: "center-block btn btn-success" %>
+              <li><%= f.button :submit, value: "Enregistrer", class: "center-block btn btn-success" %>
               <!-- <i class="fa fa-floppy-o"></i> -->
 
-              <%= f.button :submit, class: "center-block btn btn-success" do %>
-                <i class="fa fa-floppy-o"></i>&nbsp; Enregistrer
-              <% end %></li>
+              <%#= f.button :submit, class: "center-block btn btn-success" do %>
+                <!-- <i class="fa fa-floppy-o"></i>&nbsp; Enregistrer -->
+              <%# end %></li>
 
 
               <li><%= f.button :submit, value: "Annuler", class:"center-block btn btn-danger" %></li>
