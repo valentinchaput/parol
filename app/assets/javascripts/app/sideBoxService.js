@@ -33,13 +33,15 @@ $(document).ready(function() {
 $(document).on('click', '.btn-edition', function(){ // enter edition mode
   console.log("j'édite")
   $(this).removeClass('btn-edition').addClass('btn-edition-close')
+  $(this).removeClass('btn-edit').addClass('btn-quit-edit')
   makeEditable()
   editionMode()
 })
 
 $(document).on('click', '.btn-edition-close', function(){ // escape edition mode
   console.log("je n'édite plus")
-  $(this).removeClass('btn-edition-close').addClass('btn-edition')
+  $(this).removeClass('btn-edition-close').addClass('btn-edition').addClass('btn-success')
+  $(this).removeClass('btn-quit-edit').addClass('btn-edit')
   makeReadable()
 })
 
