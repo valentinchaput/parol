@@ -40,6 +40,20 @@ Cette refondation porte non seulement un projet éducatif, mais également un pr
   status:       "en discussion au Sénat"
   }]
 
+
+  Amendment.destroy_all
+  amendments = Amendment.create! [
+      {
+    chamber:          "Assemblée Nationale",
+    author:           "Thomas Chrétien",
+    amendment_number:  "37",
+    content:          "Apprendre le js est un objectif national pour l'éducation de nos enfants",
+    object:           "Sans js, on ne peut pas faire d'animation",
+    date:             "2015-03-04",
+    status:           "NA"
+    }]
+
+
 LawArticle.destroy_all
 law = laws[0]
 law_article = law.law_articles.create! [
