@@ -82,14 +82,16 @@
             <%#= f.input :amendment_number, label: "N° Amendement :" %>
             <%#= f.input :author, label: "Auteur(s) :" %>
             <%#= f.input :chamber, label: "Chambre :" %> <!-- menu déroulant : Gvt, AN, Sénat  -->
-            <%#= f.select :category, [['French','french'],['Belgian','belgian'],['Italian','italian'],['Chinese','chinese'],['Japanese','japanese']] %>
+
+            <%= f.select :chamber, [['Gouvernement','government'],['Assemblée Nationale','assemblee_nationale'],['Sénat','senate']] %>
             <%#= f.input :date, label: "Date de vote :", placeholder: "12/02/2015" %>
             <%#= f.input :status, label: "Statut :" %> <!-- menu déroulant : adopté...  -->
+            <%= f.select :status, [['En discussion','discussed'],['Adopté','adopted'],['Rejeté','rejected']] %>
             <%#= f.string :porteur %>
             <ul class="list-inline text-center">
               <li><%#= f.button :submit, value: "Enregistrer", class: "center-block btn btn-success" %>
               <!-- <i class="fa fa-floppy-o"></i> -->
-
+            <br>
               <%= f.button :submit, class: "center-block btn btn-success" do %>
                 <i class="fa fa-floppy-o"></i>&nbsp; Enregistrer
               <% end %></li>
