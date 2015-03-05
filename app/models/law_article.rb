@@ -1,4 +1,5 @@
 class LawArticle < ActiveRecord::Base
+  include Branchable
   belongs_to :law
   # belongs_to :code_article
 
@@ -37,15 +38,7 @@ class LawArticle < ActiveRecord::Base
   end
 
   def create_branch
-    law_commit = octokit_client.commit(ENV['GITHUB_LAW_REPO'], law.branch)
-    law_commit_sha = law_commit.sha
-    law_tree_sha = law_commit.commit.tree.sha
-
-    commit = octokit_client.create_commit(ENV['GITHUB_LAW_REPO'], "Creation de #{article_number} pour #{law.title}", law_tree_sha, law_commit_sha)
-    octokit_client.create_ref(ENV['GITHUB_LAW_REPO'], "heads/#{branch}", commit.sha)
+    create_branch_from(law.branch, "Creation de #{article_number} pour #{law.title}")
   end
 
-  def octokit_client
-    @octokit_client ||= Octokit::Client.new access_token: ENV['GITHUB_TOKEN']
-  end
 end

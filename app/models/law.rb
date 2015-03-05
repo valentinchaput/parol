@@ -17,15 +17,7 @@ class Law < ActiveRecord::Base
   end
 
   def create_branch
-    master_commit = octokit_client.commit(ENV['GITHUB_LAW_REPO'], 'master')
-    master_commit_sha = master_commit.sha
-    master_tree_sha = master_commit.commit.tree.sha
-
-    commit = octokit_client.create_commit(ENV['GITHUB_LAW_REPO'], "Création de #{title}", master_tree_sha, master_commit_sha)
-    octokit_client.create_ref(ENV['GITHUB_LAW_REPO'], "heads/#{branch}", commit.sha)
+    create_branch_from('master', "Creation de #{title}")
   end
 
-  def octokit_client
-    @octokit_client ||= Octokit::Client.new access_token: ENV['GITHUB_TOKEN']
-  end
 end

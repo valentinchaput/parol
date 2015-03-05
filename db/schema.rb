@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150305094205) do
+ActiveRecord::Schema.define(version: 20150305162102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20150305094205) do
     t.string   "chamber"
     t.string   "author"
     t.string   "amendment_number"
-    t.text     "content"
     t.text     "object"
     t.date     "date"
     t.string   "status"
@@ -43,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150305094205) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "position"
-    t.text     "initial_text"
+    t.string   "branch"
   end
 
   add_index "amendments", ["law_article_id"], name: "index_amendments_on_law_article_id", using: :btree

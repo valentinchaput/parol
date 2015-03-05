@@ -10,7 +10,7 @@ class CodeArticle
   include Comparable
   HEADER_PATTERN = /---\n(?<header>.*)---\n(?<content>.*)/m
 
-  attr_accessor :article_path, :article_number, :title, :content, :code, :part, :sub_part, :book, :chapter, :section
+  attr_accessor :raw_header_content, :article_path, :article_number, :title, :content, :code, :part, :sub_part, :book, :chapter, :section
 
   def self.find(article_path, ref = "master")
     serialized_content = (octokit_client.contents ENV['GITHUB_LAW_REPO'], path: article_path, ref: ref).content
@@ -25,6 +25,7 @@ class CodeArticle
 
     code_article = CodeArticle.new
     code_article.article_path = article_path
+    code_article.raw_header_content = match[:header]
     code_article.code = header[:code]
     code_article.part = header[:part]
     code_article.sub_part = header[:sub_part]
@@ -38,9 +39,17 @@ class CodeArticle
     return code_article
   end
 
+  def raw_header
+    "---\n#{raw_header_content}---\n"
+  end
+
   def <=>(other)
     self.article_number <=> other.article_number
   end
+
+  # def self.sanitize_content(content)
+  #   content.split("\n").reject!(&:blank?).join("\n")
+  # end
 
   private
 

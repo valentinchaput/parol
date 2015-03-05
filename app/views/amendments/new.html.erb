@@ -1,19 +1,27 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-4">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
       <div class="amendment">
-        <h4 class="text-center">Créer un Amendment</h4>
-        <%= simple_form_for(@amendment) do |f| %>
+        <h4>Créer un Amendment</h4>
+        <%= simple_form_for([@law_article, @amendment]) do |f| %>
           <%= f.error_notification %>
-          <%= f.input :chamber, label: "Chambre :" %> <!-- menu déroulant : Gvt, AN, Sénat  -->
-          <%= f.input :author, label: "Auteur(s) :" %>
-          <%= f.input :amendment_number, label: "N° Amendement :" %>
-          <%= f.input :content, label: "Contenu :" %>
+          <% @law_article.updated_code_articles.each do |code_article| %>
+            <div class="form-group text required">
+              <label class="text required control-label" for="amendment_object">
+                <abbr title="required">*</abbr> <%= code_article.article_number %> sera modifié par :
+              </label>
+                <%= text_area_tag("code_article[#{code_article.article_path}]", code_article.content, class: "form-control editable-text", rows: code_article.content.count("\n") * 3) %>
+            </div>
+          <% end %>
+
+          <%= f.input :amendment_number, label: "N° Amendement :", placeholder: 42 %>
           <%= f.input :object, label: "Exposé des motifs :" %>
-          <%= f.input :date, label: "Date de vote :", placeholder: "12/02/2015" %>
-          <%= f.input :status, label: "Statut :" %> <!-- menu déroulant : adopté...  -->
+          <%# f.input :chamber, label: "Chambre :" %> <!-- menu déroulant : Gvt, AN, Sénat  -->
+          <%= f.input :author, label: "Auteur(s) :" %>
           <%#= f.string :porteur %>
-          <%= f.button :submit, value: "Enregistrer", class:"center-block btn btn-success" %>
+          <ul class="list-inline text-center">
+            <li><%= f.button :submit, value: "Enregistrer", class: "center-block btn btn-success" %>
+          </ul>
         <% end %>
       </div>
     </div>
