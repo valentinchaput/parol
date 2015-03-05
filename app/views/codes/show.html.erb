@@ -17,7 +17,7 @@
         <% @code.code_articles.each do |code_article| %>
            <ul>
              <li>
-               <%= link_to code_code_article_index_path(@code, path: code_article.article_path) do %>
+               <%= link_to code_code_article_index_path(@code, path: code_article.article_path), class: 'list-article' do %>
                 <%= code_article.article_number %>
                <% end %>
             </li>
@@ -25,7 +25,7 @@
         <% end %>
           <%#= link_to amendment.title, law_amendment_path%>
         <br>
-        <p><%= link_to 'Retour à la liste', codes_path, class: 'btn btn-primary' %>
+        <p><%= link_to 'Retour à la liste', codes_path, class: 'btn btn-default' %>
         </p>
       </div>
     </div>

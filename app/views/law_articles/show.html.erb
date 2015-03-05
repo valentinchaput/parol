@@ -28,11 +28,13 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row">  </p>
     <div class="col-xs-7 article-area">
       <h2><%= @law.title %> - <%= @article.article_number %></h2>
       <h4><%= @article.object %> :</h4>
-      <%= format_article_content(@article) %>
+      <article>
+        <%= format_article_content(@article) %>
+      </article>
       <!-- texte en dur -->
       <!-- <h2>Loi éducation 2013 - Article 2</h2>
       <h4>Modifie l'article L.111-1 du Code de l'éducation :</h4>
@@ -75,30 +77,30 @@
         <% end %>
 
         <div class="form-container hidden">
-          <%= simple_form_for(@amendment) do |f| %>
-            <%= f.error_notification %>
-            <%#= f.input :initial_text, label: "Texte initial :" %>
-            <%= f.input :content, label: "Est remplacé par :" %>
-            <%= f.input :object, label: "Exposé des motifs :" %>
-            <%#= f.input :amendment_number, label: "N° Amendement :" %>
-            <%#= f.input :author, label: "Auteur(s) :" %>
-            <%#= f.input :chamber, label: "Chambre :" %> <!-- menu déroulant : Gvt, AN, Sénat  -->
-            <%#= f.select :category, [['French','french'],['Belgian','belgian'],['Italian','italian'],['Chinese','chinese'],['Japanese','japanese']] %>
-            <%#= f.input :date, label: "Date de vote :", placeholder: "12/02/2015" %>
-            <%#= f.input :status, label: "Statut :" %> <!-- menu déroulant : adopté...  -->
-            <%#= f.string :porteur %>
-            <ul class="list-inline text-center">
-              <li><%= f.button :submit, value: "Enregistrer", class: "center-block btn btn-success" %>
-              <!-- <i class="fa fa-floppy-o"></i> -->
+         <%= simple_form_for(@amendment) do |f| %>
+                     <%= f.error_notification %>
+                     <%#= f.input :initial_text, label: "Texte initial :" %>
+                     <%= f.input :content, label: "Est remplacé par :" %>
+                     <%= f.input :object, label: "Exposé des motifs :" %>
+                     <%#= f.input :amendment_number, label: "N° Amendement :" %>
+                     <%#= f.input :author, label: "Auteur(s) :" %>
+                     <%#= f.input :chamber, label: "Chambre :" %> <!-- menu déroulant : Gvt, AN, Sénat  -->
+                     <%#= f.select :category, [['French','french'],['Belgian','belgian'],['Italian','italian'],['Chinese','chinese'],['Japanese','japanese']] %>
+                     <%#= f.input :date, label: "Date de vote :", placeholder: "12/02/2015" %>
+                     <%#= f.input :status, label: "Statut :" %> <!-- menu déroulant : adopté...  -->
+                     <%#= f.string :porteur %>
+                     <ul class="list-inline text-center">
+                       <li><%= f.button :submit, value: "Enregistrer", class: "center-block btn btn-success" %>
+                       <!-- <i class="fa fa-floppy-o"></i> -->
 
-              <%#= f.button :submit, class: "center-block btn btn-success" do %>
-                <!-- <i class="fa fa-floppy-o"></i>&nbsp; Enregistrer -->
-              <%# end %></li>
+                       <%#= f.button :submit, class: "center-block btn btn-success" do %>
+                         <!-- <i class="fa fa-floppy-o"></i>&nbsp; Enregistrer -->
+                       <%# end %></li>
 
-              <li><%#= f.button :type => 'reset', value: "Annuler", class:"center-block btn btn-danger" %>
-              <%= button_tag "Annuler", :type => 'reset', class:"cancel center-block btn btn-danger" %></li>
-            </ul>
-          <% end %>
+                       <li><%#= f.button :type => 'reset', value: "Annuler", class:"center-block btn btn-danger" %>
+                       <%= button_tag "Annuler", :type => 'reset', class:"cancel center-block btn btn-danger" %></li>
+                     </ul>
+                   <% end %>
         </div>
       </div>
 
