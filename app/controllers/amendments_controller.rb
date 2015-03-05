@@ -18,12 +18,14 @@ class AmendmentsController < ApplicationController
       params[:code_article].each do |filepath, content|
         @amendment.push_code_article(filepath, content)
       end
+      redirect_to @amendment
     else
       render :new
     end
   end
 
   def show
+    @amendment = Amendment.find(params[:id])
   end
 
   def edit

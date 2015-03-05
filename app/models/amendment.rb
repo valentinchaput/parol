@@ -27,6 +27,10 @@ class Amendment < ActiveRecord::Base
     )
   end
 
+  def diff
+    octokit_client.compare(ENV['GITHUB_LAW_REPO'], law_article.branch, branch)
+  end
+
   private
 
   def set_branch_name

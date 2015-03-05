@@ -25,6 +25,8 @@ gem "rails-i18n"
 gem "devise-i18n"
 gem "devise-i18n-views"
 
+gem "rails-assets-jsdiff"
+
 gem "mechanize"
 
 gem 'activeadmin', github: 'activeadmin'

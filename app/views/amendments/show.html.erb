@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-2">
+      <% @amendment.diff.files.each do |file| %>
+        <h3><%= file.filename %></h3>
+
+        <% before = file.patch.split("\n").select { |line| line.start_with?("-") }[1..-1].join("\n") %>
+        <% after = file.patch.split("\n").select { |line| line.start_with?("+") }[1..-1].join("\n") %>
+
+        <script>
+          JsDiff.diffWords("<%= j before %>", "<%= j after %>").forEach(function(part){
+            // green for additions, red for deletions
+            // grey for common parts
+            console.log(part);
+            var color = part.added ? 'green' :
+              part.removed ? 'red' : 'grey';
+              console.log(part.value);
+            if (part.value == "+") {
+              document.write("<br>");  // Porky
+            } else if (part.value.length > 1) {
+              document.write('<span style="color: ' + color + '">' + part.value + '</span>');
+            }
+          });
+        </script>
+
+      <% end %>
+    </div>
+  </div>
+</div>
