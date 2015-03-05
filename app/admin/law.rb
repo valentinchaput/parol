@@ -1,18 +1,14 @@
 ActiveAdmin.register Law do
-  permit_params :title, :description
+  permit_params :title, :description, :status
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:permitted, :attributes]
-  #   permitted << :other if resource.something?
-  #   permitted
-  # end
-
-
+   form do |f|
+    f.inputs "Law" do
+      f.input :title
+      f.input :description
+    end
+    f.inputs "Status" do
+      f.input :status
+    end
+    f.actions
+  end
 end
