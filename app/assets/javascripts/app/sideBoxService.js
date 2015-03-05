@@ -9,7 +9,8 @@ $(document).ready(function() {
 
     if ($('.bg-active').length) { // si il y a déjà un amendement displayed
       if (that.hasClass('active')) { // si on click sur le l'amendment déjà display
-        // il ne se passe rien car c'est déjà display ;)
+        $('.active').removeClass('active');
+        $('.bg-active').removeClass('bg-active').addClass('hidden') // on reclique et la box se ferme
       } else {
         $('.active').removeClass('active'); // sinon, on remove l'état actif des éléments actifs
         $('.bg-active').removeClass('bg-active').addClass('hidden'); // on enlève l'amendement précédent de la box
@@ -31,6 +32,9 @@ $(document).ready(function() {
 
 // mode edition d'un amendement
 $(document).on('click', '.btn-edition', function(){ // enter edition mode
+console.log("je ferme toutes les box actives de lecture d'amendement")
+  $('.active').removeClass('active'); // ferme les boxes d'amendement
+  $('.bg-active').removeClass('bg-active').addClass('hidden')
   console.log("j'édite")
   $(this).removeClass('btn-edition').addClass('btn-edition-close') // btn pour js
   makeEditable()
@@ -48,7 +52,8 @@ $(document).on('click', '.btn-edition-close', function(){ // escape edition mode
 function editionMode() {
   $(document).on('mouseup', '.editable', function(){
     if (window.getSelection().toString().length != 0) {
-      $('.initial-selection h3 span').text(window.getSelection().toString())
+      $('.initial-selection p span').text(window.getSelection().toString())
+      $('.btn-text-replace').removeClass('hidden')
 
       // TODO : remove hidden class on add box
       $('.new-amendment').removeClass('hidden');
@@ -83,6 +88,13 @@ function textIncrementation() {
     $('.new-text').text(newText)
   })
 }
+
+//annuler saisie et sortir du formulaire
+$('.cancel').on('click', function(){
+  $('.active').removeClass('active'); // sinon, on remove l'état actif des éléments actifs
+  $('.form-container').addClass('hidden'); // on enlève l'amendement précédent de la box
+}
+  )
 
 function makeEditable() {
   $('.article-area').addClass('editable');

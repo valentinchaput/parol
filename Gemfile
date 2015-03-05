@@ -24,6 +24,7 @@ gem "font-awesome-sass"
 gem "rails-i18n"
 gem "devise-i18n"
 gem "devise-i18n-views"
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 
 gem "mechanize"
 
