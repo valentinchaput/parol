@@ -1,6 +1,5 @@
 <div class="container">
   <div class="row">
-
     <div class="col-xs-11">
       <ul class='list-inline'>
         <li>
@@ -74,11 +73,11 @@
         <a class='btn btn-text-replace btn-success'>Déposer un amendement</a>
         <div class="form-container hidden">
 
-          <%= simple_form_for(@amendment) do |f| %>
-            <%= f.error_notification %>
+          <%#= simple_form_for(@amendment) do |f| %>
+            <%#= f.error_notification %>
             <%#= f.input :initial_text, label: "Texte initial :" %>
-            <%= f.input :content, label: "Est remplacé par :" %>
-            <%= f.input :object, label: "Exposé des motifs :" %>
+            <%#= f.input :content, label: "Est remplacé par :" %>
+            <%#= f.input :object, label: "Exposé des motifs :" %>
             <%#= f.input :amendment_number, label: "N° Amendement :" %>
             <%#= f.input :author, label: "Auteur(s) :" %>
             <%#= f.input :chamber, label: "Chambre :" %> <!-- menu déroulant : Gvt, AN, Sénat  -->
@@ -86,18 +85,17 @@
             <%#= f.input :date, label: "Date de vote :", placeholder: "12/02/2015" %>
             <%#= f.input :status, label: "Statut :" %> <!-- menu déroulant : adopté...  -->
             <%#= f.string :porteur %>
-            <ul class="list-inline text-center">
+            <!-- <ul class="list-inline text-center"> -->
               <li><%#= f.button :submit, value: "Enregistrer", class: "center-block btn btn-success" %>
               <!-- <i class="fa fa-floppy-o"></i> -->
 
-              <%= f.button :submit, class: "center-block btn btn-success" do %>
-                <i class="fa fa-floppy-o"></i>&nbsp; Enregistrer
-              <% end %></li>
+              <%#= f.button :submit, class: "center-block btn btn-success" do %>
+                <!-- <i class="fa fa-floppy-o"></i>&nbsp; Enregistrer -->
+              <%# end %></li>
 
-
-              <li><%= f.button :submit, value: "Annuler", class:"center-block btn btn-danger" %></li>
+              <li><%#= f.button :submit, value: "Annuler", class:"center-block btn btn-danger" %></li>
             </ul>
-          <% end %>
+          <%# end %>
         </div>
       </div>
 

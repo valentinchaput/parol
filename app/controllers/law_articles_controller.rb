@@ -5,6 +5,9 @@ class LawArticlesController < ApplicationController
     @law        = Law.find(params[:law_id])
     @article    = @law.law_articles.find(params[:id])
     @amendments = @article.amendments.order('position asc')
+  end
+
+  def edit
     @amendment  = Amendment.new
   end
 

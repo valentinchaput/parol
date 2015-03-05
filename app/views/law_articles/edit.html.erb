@@ -1,0 +1,10 @@
+<%= simple_form_for(@amendment) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :content, label: "Est remplacé par :", value: "Soooooo" %>
+  <ul class="list-inline text-center">
+    <li><%= f.button :submit, value: "Enregistrer", class: "center-block btn btn-success" %></li></ul>
+<% end %>
+
+  <!-- we specify the new custom input, and we'll use the 'thumb' version of the carrierwave upload -->
+  <%#= f.input :image, :as => :image_preview, :input_html => {:preview_version => :thumb} %>
+<%# end %>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :laws, only: [:index, :show] do
-    resources :law_articles, only: [:show]
+    resources :law_articles, only: [:show, :edit]
   end
 
   resources :amendments
