@@ -1,23 +1,26 @@
-
-
 <body>
-
-
+  <div class="container">
     <div class="row">
-      <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">
+     <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
 
         <h1>Les codes de loi</h1>
         <br>
-        <ul>
-          <% @codes.each do |code| %>
-          <li>
-            <h4><%= code.title %></h4>
-            <p><%= code.description %></p>
-            <p><%= link_to 'Details', code_path(code), class: 'btn btn-default' %></p>
-          </li>
-          <% end %>
-        </ul>
 
+          <% @codes.each do |code| %>
+              <div class="col-xs-10">
+                <ul class="list-inline">
+                <li>
+                  <h4><%= code.title %></h4>
+                  <p><%= code.description %></p>
+                </li>
+              </div>
+              <div class="col-xs-2">
+                <%= link_to "Voir le code", code_path(code), class: 'btn btn-default' %>
+                </ul>
+              </div>
+              <% end %>
+
+      </div>
     </div>
   </div>
 </body>
