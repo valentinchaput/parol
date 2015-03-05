@@ -29,11 +29,13 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row">  </p>
     <div class="col-xs-7 article-area">
       <h2><%= @law.title %> - <%= @article.article_number %></h2>
       <h4><%= @article.object %> :</h4>
-      <%= format_article_content(@article) %>
+      <article>
+        <%= format_article_content(@article) %>
+      </article>
       <!-- texte en dur -->
       <!-- <h2>Loi éducation 2013 - Article 2</h2>
       <h4>Modifie l'article L.111-1 du Code de l'éducation :</h4>

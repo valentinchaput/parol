@@ -69,9 +69,9 @@ function editionMode() {
 function textIncrementation() {
   var selection = window.getSelection().toString()
   var selectionToMatch = $("<a class='editable-amendment'>").text(window.getSelection().toString())[0].outerHTML
-  var textToReplace = $('.article-area p').html()
+  var textToReplace = $('.article-area article').html()
   var newText = textToReplace.replace(selection, selectionToMatch)
-  $('.article-area p').html(newText)
+  $('.article-area article').html(newText)
   $('.editable-amendment').after("<a class='new-text'></a>")
 
 
