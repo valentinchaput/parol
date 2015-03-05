@@ -8,7 +8,12 @@ class LawArticlesController < ApplicationController
   end
 
   def edit
-    @amendment  = Amendment.new
+    @law         = Law.find(params[:law_id])
+    @law_article = LawArticle.find(params[:id])
+  end
+
+  def update
+    raise "TODO"
   end
 
   def next_article

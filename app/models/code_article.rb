@@ -12,9 +12,8 @@ class CodeArticle
 
   attr_accessor :article_path, :article_number, :title, :content, :code, :part, :sub_part, :book, :chapter, :section
 
-  def self.find(root_path, article_path)
-    path = "#{root_path}/#{article_path}"
-    serialized_content = (octokit_client.contents ENV['GITHUB_LAW_REPO'], path: path).content
+  def self.find(article_path, ref = "master")
+    serialized_content = (octokit_client.contents ENV['GITHUB_LAW_REPO'], path: article_path, ref: ref).content
     content = Base64.decode64(serialized_content).force_encoding("UTF-8")
 
     match = HEADER_PATTERN.match(content)

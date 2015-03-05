@@ -24,7 +24,7 @@ class CodeArticleController < ApplicationController
 
   def index
     @code = Code.find(params[:code_id])
-    @code_article = CodeArticle.find(@code.github_path, params[:path])
+    @code_article = CodeArticle.find("#{@code.github_path}/#{params[:path]}")
   end
 
 #   def show

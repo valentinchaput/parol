@@ -6,8 +6,7 @@ class Code < ActiveRecord::Base
 
   def code_articles
     (octokit_client.contents(ENV['GITHUB_LAW_REPO'], path: github_path).map(&:path).map do |path|
-      path = path.gsub("#{github_path}/", '')
-      CodeArticle.find(github_path, path)
+      CodeArticle.find(path)
     end).sort
   end
 

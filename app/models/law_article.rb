@@ -18,9 +18,16 @@ class LawArticle < ActiveRecord::Base
     "Modification de " + commit.files.map(&:filename).join(", ")
   end
 
-  def content
+  def diff
     commit = octokit_client.commit(ENV['GITHUB_LAW_REPO'], branch)
     commit.files.map(&:patch).join
+  end
+
+  def updated_code_articles
+    commit = octokit_client.commit(ENV['GITHUB_LAW_REPO'], branch)
+    commit.files.map do |file|
+      CodeArticle.find(file.filename, commit.sha)
+    end
   end
 
   private
