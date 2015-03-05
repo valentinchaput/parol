@@ -11,8 +11,8 @@
       <!-- on a besoin de la liste des articles concernés par la loi  -->
       <!-- leur titre + leur url (qui redirige vers l'amendment/show -->
 
-      <% @law.law_articles.each do |law_article| %>
       <ul>
+      <% @law.law_articles.each do |law_article| %>
         <li>
           <%= link_to law_article.article_number, law_law_article_path(@law, law_article), class: "list-article" %>
           <% end %>
