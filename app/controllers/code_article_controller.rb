@@ -4,6 +4,8 @@ require "legifranceparser/crawler"
 
 class CodeArticleController < ApplicationController
   #method "main" parser
+  skip_before_action :authenticate_user!, only: [ :index ]
+
   def self.parse_all_articles_from_code(code_url)
     crawler = Crawler.new(code_url)
     articles_url = crawler.run!

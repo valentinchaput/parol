@@ -55,14 +55,16 @@
         <% else %>
           <li>
             <%= link_to codes_path do %>
-              <i class="fa fa-legal"></i> <%= t(".messages", default: "Codes de loi") %>
+              <%= t(".messages", default: "Codes de loi") %>
             <% end %>
           </li>
-          <li>
-            <%= link_to page_path(:about) do %>
-              <i class="fa fa-question-circle"></i> <%= t(".messages", default: "A propos") %>
-            <% end %>
-          </li>
+
+          <!-- bouton navbar A propos enlevé pour la démo -->
+<!--           <li>
+            <%#= link_to page_path(:about) do %>
+              <%#= t(".messages", default: "A propos") %>
+            <%# end %>
+          </li> -->
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
