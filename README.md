@@ -1,5 +1,7 @@
 # Parol
 
+This repository is a prototype made by students from www.lewagon.org in March 2015.
+
 ## Configuration
 
 The app configuration lies in `config/application.yml` and is **not**
